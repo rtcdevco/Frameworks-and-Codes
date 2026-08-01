@@ -1,0 +1,53 @@
+{
+  "name": "airtable",
+  "version": "1.0.0",
+  "description": "Airtable integration for Multi-AI System - CRUD operations and AI-powered organization",
+  "author": "Multi-AI System",
+  "entry_point": "airtable_plugin.py:AirtablePlugin",
+  "dependencies": [
+    "pyairtable>=2.2.0"
+  ],
+  "config_schema": {
+    "type": "object",
+    "properties": {
+      "api_key": {
+        "type": "string",
+        "env": "AIRTABLE_API_KEY",
+        "description": "Airtable Personal Access Token"
+      },
+      "base_id": {
+        "type": "string",
+        "env": "AIRTABLE_BASE_ID",
+        "description": "Airtable Base ID (starts with 'app')"
+      },
+      "default_table": {
+        "type": "string",
+        "env": "AIRTABLE_DEFAULT_TABLE",
+        "description": "Default table name"
+      }
+    },
+    "required": ["api_key", "base_id"]
+  },
+  "tools": [
+    {
+      "name": "airtable_list_records",
+      "description": "List records from an Airtable table with optional filtering"
+    },
+    {
+      "name": "airtable_create_record",
+      "description": "Create a new record in an Airtable table"
+    },
+    {
+      "name": "airtable_update_record",
+      "description": "Update an existing record in Airtable"
+    },
+    {
+      "name": "airtable_delete_record",
+      "description": "Delete a record from Airtable"
+    },
+    {
+      "name": "airtable_bulk_create",
+      "description": "Create multiple records in one operation"
+    }
+  ]
+}
