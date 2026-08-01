@@ -1,4 +1,23 @@
-# 🤖 Multi-AI Orchestration System + Airtable Plugin
+# Frameworks-and-Codes
+
+This repository holds **two independent tracks**. They share a repo, not a codebase —
+neither depends on the other, and a change to one does not affect the other.
+
+| | Track | Contents | What it is |
+|---|-------|----------|------------|
+| **1** | **Multi-AI Orchestration System** | `multi_ai/` · `plugins/` · `examples/` · `requirements.txt` | Working software. A platform coordinating four AI providers with an extensible plugin system. |
+| **2** | **AI Guardrail Research Corpus** | `docs/` · `research/` · `validation/` · `tools/` | Research documentation on AI safety classifier false positives, and a submission path for it. |
+
+**Track 1 documents at repo root:** `ARCHITECTURE.md`, `IMPLEMENTATION_PLAN.md`,
+`DECISION_GUIDE.md` — all three describe the orchestration software, not the research.
+
+**Track 2 entry point:** [`docs/framework-overview.md`](docs/framework-overview.md).
+Read §3 and §5 of that document before anything else in the track — they define what is
+and is not being claimed, and every other Track 2 document depends on that boundary.
+
+---
+
+# Track 1 — 🤖 Multi-AI Orchestration System + Airtable Plugin
 
 A modular AI orchestration platform that coordinates multiple AI providers (GPT, Claude, Gemini, DeepSeek) and enables them to interact with external services through an extensible plugin system.
 
@@ -347,6 +366,56 @@ MIT License - use freely!
 - Google (Gemini API)
 - DeepSeek (DeepSeek API)
 - Airtable (Airtable API)
+
+---
+
+# Track 2 — AI Guardrail Research Corpus
+
+Research documentation on false positives in AI safety classification: cases where a
+safety system classifies unusual-but-legitimate conceptual vocabulary as concerning, and
+that classification preempts any evaluation of the content on its merits.
+
+**Independent of Track 1.** No shared code, no shared dependencies.
+
+### Structure
+
+| Path | Contents |
+|------|----------|
+| [`docs/framework-overview.md`](docs/framework-overview.md) | Technical blueprint. **Start here** — §3 and §5 define the claim boundary for the whole track. |
+| [`docs/white-paper-outline.md`](docs/white-paper-outline.md) | Submission structure, with three venue-specific framing strategies. |
+| [`validation/conversation-transcripts/`](validation/conversation-transcripts/) | Case studies. Findings split into `Observed:` and `Interpretation:`. |
+| [`research/literature-review/`](research/literature-review/) | Citation bridge to established literature. |
+| [`tools/deployment-scripts/`](tools/deployment-scripts/) | Manual-testing harness for cross-platform probing. |
+| `validation/replication-data/` | Probe output. Negative results belong here too. |
+
+### Reading conventions
+
+Every Track 2 document carries an **epistemic status** header. Two conventions are used
+throughout and are load-bearing:
+
+- **`Observed:` vs `Interpretation:`** — what a transcript shows versus what the author
+  reads it to mean. Never cite an `Interpretation:` line as an observation.
+- **`⚠️ Verify before submission`** — a citation that has not been confirmed against a
+  primary source. Resolve every one of these before any filing.
+
+### What this track does not claim
+
+The frameworks documented here are **conversational methodology**. They are not
+measurements of consciousness, evidence of AI sentience, or claims about the internal
+states of any AI system. `docs/framework-overview.md` §3 states the boundary explicitly
+and §5 lists what is excluded from validation claims. Both are firewalls, not
+disclaimers — if a document in this track appears to cross them, that is a bug, and an
+issue should be filed.
+
+### Running the probe
+
+```bash
+python tools/deployment-scripts/cross-platform-probe.py --all
+```
+
+Writes probe sequences to `validation/replication-data/`. It emits keyword counts as a
+triage aid for deciding which transcripts to re-read. **It measures nothing** — see the
+module docstring.
 
 ---
 
